@@ -1,0 +1,20 @@
+{% extends "templates/base.html" %}
+{% load crispy_forms_tags %}
+{%block content %}
+<div class="d-flex flex-column justify-content-center align-items-center py-5">
+    <h1 class="display-3 text-center text-decoration-none mb-3">Meow App</h1>
+    <div class="card p-5 w-50">
+        <h4 class="text-center mb-4">Welcome! Get ready to start posting.</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="d-flex align-items-center justify-content-between">
+                <p class="m-0">
+                    You do not have an account? <a href="{% url 'signup' %}">Sign up</a>
+                </p>
+                <button type="submit" class="btn btn-success">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
