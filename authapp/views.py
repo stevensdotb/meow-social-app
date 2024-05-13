@@ -3,9 +3,7 @@ from django.shortcuts import redirect, render
 
 from authapp.forms import LoginForm, SignupForm
 
-# Create your views here.
 
-# signup page
 def user_signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -31,7 +29,7 @@ def user_login(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)    
-                return redirect('index')
+                return redirect('home')
     else:
         form = LoginForm()
     return render(request, 'login.html', {'form': form})

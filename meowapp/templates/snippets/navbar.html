@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand bg-body-tertiary py-3">
+    <div class="d-flex justify-content-between w-100">
+      <div>
+        <a class="navbar-brand px-0" href="#">Meow App</a>
+      </div>
+      <div>
+          {% if request.user.is_authenticated %}
+          <span class="me-2">
+              <b>
+                  <a href="#">@{{ request.user.username }}</a>
+              </b>
+          </span>
+            <a href="{% url 'logout' %}" class="btn btn-outline-success me-2" >Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-success" >Login</a>
+        {% endif %}
+      </div>
+    </div>
+</nav>

@@ -1,5 +1,12 @@
 {% extends "templates/base.html" %}
 
+{% block navbar %}
+    {% include "templates/snippets/navbar.html" %}
+{% endblock%}
 {% block content %}
-    <h1 class="display-1">Meow App</h1>
+    {% include "templates/snippets/meow_input.html" %}
+    {% include "templates/snippets/post_card.html" %}
+    {% include "templates/snippets/post_card.html" %}
+    {% include "templates/snippets/post_card.html" %}
+    {% include "templates/snippets/post_card.html" %}
 {% endblock %}
