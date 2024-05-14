@@ -14,7 +14,7 @@ def user_profile(request, username):
             return redirect("user_profile", username=username)
 
     form = PostForm()
-    posts = Post.objects.filter(user__username=username).all()
+    posts = Post.objects.filter(user__username=username).all().order_by("-created_at")
 
     context = {
         "username": username,
