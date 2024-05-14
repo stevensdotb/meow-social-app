@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 from .views import home
-# from authapp import views
+
 
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
-    path("", include("authapp.urls"))
+    path("", include("authapp.urls")),
+    path("", include("userprofile.urls"))
 ]

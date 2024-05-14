@@ -3,12 +3,12 @@
     <div class="id-post d-flex mb-2">
         <span class="me-2">
             <b>
-                <a href="">@{{ request.user.username }}</a>
+                <a href="{% url 'user_profile' post.user.username %}">@{{ post.user.username }}</a>
             </b>
         </span>
-        <span>{ post_date }</span>
+        <span>{{ post.created_at }}</span>
     </div>
     <div class="card content p-3">
-        <p>{post_text }</p>
+        <p>{{ post.text }}</p>
     </div>
 </div>

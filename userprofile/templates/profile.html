@@ -1,0 +1,18 @@
+{% extends "templates/base.html" %}
+{% load static %}
+
+{% block navbar %}
+    {% include "templates/snippets/navbar.html" %}
+{% endblock%}
+{% block content %}
+    <div class="profile-details d-flex align-items-center my-4">
+        <img src="{% static 'userprofile/avatar.png' %}" class="img-thumbnail" alt="avatar profile" width="100">
+        <h1 class="ms-4">{{ username | upper}}</h1>
+    </div>
+    {% if request.user.is_authenticated and request.user.username == username  %}
+        {% include "templates/snippets/post_input.html" with form=form %}
+    {% endif %}
+    {% for post in posts %}
+        {% include "templates/snippets/post_card.html" with post=post%}
+    {% endfor %}
+{% endblock %}

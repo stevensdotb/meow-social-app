@@ -17,6 +17,7 @@ def user_signup(request):
             return redirect('login')
     else:
         form = SignupForm()
+
     return render(request, 'signup.html', {'form': form})
 
 # login page
@@ -32,6 +33,8 @@ def user_login(request):
                 return redirect('home')
     else:
         form = LoginForm()
+    
+    print(form)
     return render(request, 'login.html', {'form': form})
 
 # logout page
