@@ -14,7 +14,7 @@ def user_signup(request):
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)    
-            return redirect('login')
+            return redirect('home')
     else:
         form = SignupForm()
 

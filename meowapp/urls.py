@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import home
+from .views import home, not_found_404
 
 
 urlpatterns = [
     path("", home, name="home"),
     path("admin/", admin.site.urls),
+    path("notfound/", not_found_404, name="not_found_404"),
     path("", include("authapp.urls")),
     path("", include("userprofile.urls"))
 ]

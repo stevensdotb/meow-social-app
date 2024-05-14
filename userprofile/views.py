@@ -1,10 +1,15 @@
 from django.shortcuts import redirect, render
+from django.contrib.auth.models import User
 
 from .models import Post
 from .forms import PostForm
 
 
 def user_profile(request, username):
+
+    user_lookup = User.objects.filter(username=username).first()
+    if not user_lookup:
+        return redirect("not_found_404")
 
     if request.method == "POST":
         form = PostForm(request.POST)
