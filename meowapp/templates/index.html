@@ -4,6 +4,23 @@
     {% include "templates/snippets/navbar.html" %}
 {% endblock%}
 {% block content %}
+    <header id="header" class="py-5">
+        <h2 class="text-center text-secondary">Stay up to date with what our meowers think.</h2>
+        <div class="sub-header-text d-flex justify-content-center">
+            {% if not posts %}
+                <h3 class="text-center text-secondary">Be the first to </h3>
+            {% endif %}
+            <div>
+                <a href="
+                    {% if request.user.is_authenticated %}
+                        {% url 'user_profile' request.user.username %}
+                    {% else %}
+                        {% url 'login' %}
+                    {% endif %}
+                " class="btn btn-outline-success ms-2">POST</a>
+            </div>
+        </div>
+    </header>
     {% for post in posts %}
         {% include "templates/snippets/post_card.html" with post=post%}
     {% endfor %}

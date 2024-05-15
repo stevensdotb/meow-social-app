@@ -56,6 +56,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "meowapp.urls"
+CSRF_COOKIE_DOMAIN = None
+# Suggested code may be subject to a license. Learn more: ~LicenseLog:3127427933.
+CSRF_TRUSTED_ORIGINS = os.environ.get("DJANGO_ALLOWED_HOSTS").split(" ")
 
 TEMPLATES = [
     {
